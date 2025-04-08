@@ -2,7 +2,9 @@
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ArticleCard from "@/app/components/ArticleCard";
-import { articles } from "@/app/page";
+import { getAllArticles } from "@/lib/data";
+
+const articles = getAllArticles();
 
 export const metadata = {
   title: "Articles | Mini-blog Tech",
