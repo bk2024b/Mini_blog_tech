@@ -18,11 +18,9 @@ export default function ArticleCard({ title, excerpt, slug, date, readTime, cate
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          // Meilleure gestion de l'erreur
-          onError={(e) => {
-            e.currentTarget.src = "/images/default-article.jpg";
-            e.currentTarget.onerror = null; // Évite les boucles d'erreur
-          }}
+          // Remplacer le gestionnaire onError par placeholder
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlOWVkZjUiLz48L3N2Zz4="
         />
         <div className="absolute top-2 left-2">
           <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full">

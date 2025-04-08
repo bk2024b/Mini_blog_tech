@@ -98,10 +98,9 @@ export default function ArticlePage({ params }) {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 768px"
-                // Fallback image if specific one isn't available
-                onError={(e) => {
-                  e.target.src = "/images/default-article.jpg";
-                }}
+                // Suppression du gestionnaire onError et utilisation d'une image placeholder
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlOWVkZjUiLz48L3N2Zz4="
               />
             </div>
             
