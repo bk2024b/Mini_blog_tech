@@ -2,7 +2,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
 import { articles } from "@/app/page";
-import { notFound } from "next/navigation";
+
 
 export function generateStaticParams() {
   return articles.map((article) => ({
@@ -13,10 +13,6 @@ export function generateStaticParams() {
 export default function ArticlePage({ params }) {
   const article = articles.find((article) => article.slug === params.slug);
   
-  if (!article) {
-    notFound();
-  }
-
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Navbar />
