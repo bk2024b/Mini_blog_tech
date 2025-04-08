@@ -1,3 +1,5 @@
+'use client'
+
 // src/app/articles/[slug]/page.jsx
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
