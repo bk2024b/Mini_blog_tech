@@ -1,6 +1,6 @@
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ThemeProvider from "./components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mini-blog Tech - Josias Boco",
+  title: {
+    default: "Mini-blog Tech - Josias Boco",
+    template: "%s | Mini-blog Tech - Josias Boco",
+  },
   description: "Blog tech moderne créé par Josias Boco avec Next.js et Tailwind CSS",
-  keywords: "next.js, tailwind, bénin, développeur web, blog tech",
-  authors: [{ name: "Josias Boco" }],
+  keywords: ["next.js", "tailwind", "bénin", "développeur web", "blog tech", "Josias Boco"],
+  authors: [{ name: "Josias Boco", url: "https://linkedin.com/in/josiasboco" }],
+  creator: "Josias Boco",
   openGraph: {
     title: "Mini-blog Tech - Josias Boco",
     description: "Blog tech moderne créé par Josias Boco avec Next.js et Tailwind CSS",
@@ -25,13 +29,19 @@ export const metadata = {
     locale: "fr-FR",
     type: "website",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

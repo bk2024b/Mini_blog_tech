@@ -1,42 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useTheme } from "./ThemeProvider";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("light");
-  
-  useEffect(() => {
-    // Check local storage or system preference
-    const savedTheme = localStorage.getItem("theme") || 
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    
-    setTheme(savedTheme);
-    
-    // Apply theme to document
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-  
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
+  const { theme, toggleTheme } = useTheme();
   
   return (
     <button
       onClick={toggleTheme}
       className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors"
       aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
+      title={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
     >
       {theme === "light" ? (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
