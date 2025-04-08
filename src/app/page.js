@@ -19,7 +19,7 @@ export default function Home() {
       <Navbar />
       
       {/* Hero Section Modernisée */}
-      <section className="bg-gradient-to-r from-primary-gradient-from to-primary-gradient-to text-white py-16">
+      <section className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-20">
         <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 mb-8 md:mb-0 md:pr-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
