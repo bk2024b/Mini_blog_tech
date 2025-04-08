@@ -13,7 +13,7 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
+export async function generateMetadata({ params }) {
   const article = getArticleBySlug(params.slug);
   
   if (!article) {

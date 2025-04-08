@@ -2,7 +2,6 @@
 
 import { createContext, useState, useEffect, useContext } from "react";
 
-// Création du contexte de thème
 export const ThemeContext = createContext({
   theme: "light",
   setTheme: () => {},
@@ -15,9 +14,9 @@ export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light");
   const [mounted, setMounted] = useState(false);
 
-  // Effect pour l'initialisation du thème
+  // Effect pour l'initialisation du thème - seulement côté client
   useEffect(() => {
-    // Vérification du localStorage ou de la préférence système
+    // Récupération du thème depuis localStorage
     const savedTheme = localStorage.getItem("theme") ||
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     
@@ -37,12 +36,15 @@ export default function ThemeProvider({ children }) {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
     
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", newTheme);
+      
+      if (newTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     }
   };
 

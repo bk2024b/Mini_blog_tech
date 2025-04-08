@@ -18,9 +18,10 @@ export default function ArticleCard({ title, excerpt, slug, date, readTime, cate
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          // Fallback image if specific one isn't available
+          // Meilleure gestion de l'erreur
           onError={(e) => {
-            e.target.src = "/images/default-article.jpg";
+            e.currentTarget.src = "/images/default-article.jpg";
+            e.currentTarget.onerror = null; // Évite les boucles d'erreur
           }}
         />
         <div className="absolute top-2 left-2">
