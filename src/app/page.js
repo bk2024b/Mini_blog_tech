@@ -107,7 +107,7 @@ export default function Home() {
                     href={`/articles/${featuredArticle.slug}`}
                     className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium group"
                   >
-                    Lire l'article complet
+                    Lire la suite...
                     <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
