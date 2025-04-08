@@ -14,19 +14,24 @@ export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light");
   const [mounted, setMounted] = useState(false);
 
-  // Effect pour l'initialisation du thème - seulement côté client
+  // Protection contre l'hydratation - initialiser seulement côté client
   useEffect(() => {
-    // Récupération du thème depuis localStorage
-    const savedTheme = localStorage.getItem("theme") ||
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    // Récupération du thème depuis localStorage avec protection
+    const savedTheme = 
+      typeof window !== "undefined" 
+        ? localStorage.getItem("theme") || 
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+        : "light";
     
     setTheme(savedTheme);
     
-    // Application du thème au document
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    // Application du thème au document uniquement côté client
+    if (typeof window !== "undefined") {
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     }
     
     setMounted(true);
