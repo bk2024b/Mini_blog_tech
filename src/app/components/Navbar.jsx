@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 
 export default function Navbar() {
@@ -27,8 +26,8 @@ export default function Navbar() {
     <nav 
       className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 border-b ${
         scrolled 
-          ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border-gray-200 dark:border-slate-800 shadow-sm" 
-          : "bg-white dark:bg-slate-900 border-transparent"
+          ? "bg-slate-900/90 backdrop-blur-sm border-slate-800 shadow-sm" 
+          : "bg-slate-900 border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,17 +49,13 @@ export default function Navbar() {
             <NavLink href="/articles">Articles</NavLink>
             <NavLink href="/about">À propos</NavLink>
             <NavLink href="/contact">Contact</NavLink>
-            <div className="ml-4">
-              <ThemeToggle />
-            </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center">
-            <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="ml-2 inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 focus:outline-none transition-colors"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:bg-slate-800 focus:outline-none transition-colors"
               aria-expanded="false"
             >
               <span className="sr-only">Ouvrir le menu principal</span>
@@ -131,7 +126,7 @@ function NavLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="px-3 py-2 rounded-md text-sm font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative group"
+      className="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:bg-slate-800 hover:text-blue-400 transition-colors relative group"
     >
       {children}
       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
@@ -143,7 +138,7 @@ function MobileNavLink({ href, onClick, children }) {
   return (
     <Link
       href={href}
-      className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+      className="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-slate-800 hover:text-blue-400 transition-colors"
       onClick={onClick}
     >
       {children}

@@ -5,6 +5,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 
 export default function Contact() {
+  // ... code existant ...
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -55,12 +56,13 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
+    <div className="min-h-screen bg-slate-900 flex flex-col">
       <Navbar />
-      <main className="max-w-4xl mx-auto p-6 flex-grow w-full">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">Contact</h1>
+      <main className="max-w-4xl mx-auto p-6 flex-grow w-full pt-28"> {/* Ajouté pt-28 */}
+        <h1 className="text-3xl font-bold text-gray-100 mb-6">Contact</h1>
         
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+        <div className="bg-slate-800 rounded-xl shadow-md p-6 mb-8 border border-slate-700">
+          {/* ... reste du contenu ... */}
           <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Me contacter</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
