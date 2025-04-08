@@ -9,16 +9,16 @@ export const metadata = {
   title: "Accueil | Mini-blog Tech",
   description: "Blog tech moderne par Josias Boco pour aider les entrepreneurs et développeurs béninois",
 };
-// Modifications pour la page d'accueil (src/app/page.js)
+
 export default function Home() {
   // Récupérer les articles (normalement depuis un CMS ou une API)
   const featuredArticles = getAllArticles().slice(0, 3);
   
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 flex flex-col">
       <Navbar />
       
-      {/* Hero Section - Cohérence améliorée avec le style sombre */}
+        {/* Hero Section - Cohérence améliorée avec le style sombre */}
       <section className="bg-slate-800 text-white pt-32 pb-16 border-b border-slate-700">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -39,12 +39,12 @@ export default function Home() {
       {/* Featured Articles */}
       <main className="max-w-6xl mx-auto px-6 py-12 flex-grow">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-100">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
             Articles récents
           </h2>
           <Link
             href="/articles"
-            className="text-blue-400 hover:underline flex items-center"
+            className="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
           >
             Tous les articles
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
@@ -67,18 +67,18 @@ export default function Home() {
           ))}
         </div>
         
-        {/* About Section */}
-        <section className="mt-16 bg-slate-800 rounded-xl p-8 shadow-md border border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-100 mb-4">
+        {/* About Section - Cohérence améliorée avec slate pour le mode sombre */}
+        <section className="mt-16 bg-white dark:bg-slate-800 rounded-xl p-8 shadow-md">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             À propos de ce blog
           </h2>
-          <p className="text-gray-300 mb-4">
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
             Je suis Josias Boco, étudiant en Génie Électrique et Informatique au Bénin. 
             Ce blog partage mon expertise en développement web moderne, adapté aux réalités locales.
           </p>
           <Link
             href="/about"
-            className="text-blue-400 hover:underline flex items-center w-fit"
+            className="text-blue-600 dark:text-blue-400 hover:underline flex items-center w-fit"
           >
             En savoir plus
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
