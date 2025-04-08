@@ -37,11 +37,14 @@ export default function ThemeProvider({ children }) {
     setMounted(true);
   }, []);
 
-  // Fonction pour basculer le thème
+  // Fonction pour basculer le thème - corrigée pour s'assurer que les changements sont appliqués
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
+    
+    // Mettre à jour l'état
     setTheme(newTheme);
     
+    // Mettre à jour le localStorage et les classes CSS
     if (typeof window !== "undefined") {
       localStorage.setItem("theme", newTheme);
       

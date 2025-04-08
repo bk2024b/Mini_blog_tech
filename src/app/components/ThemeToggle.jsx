@@ -6,11 +6,21 @@ import { useState, useEffect } from "react";
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Une fois le composant monté, on peut afficher le bon thème
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const handleToggle = () => {
+    // Animation de clic
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 300);
+    
+    // Appliquer le changement de thème
+    toggleTheme();
+  };
 
   // Si pas encore monté, on affiche un placeholder pour éviter le saut
   if (!mounted) {
@@ -27,8 +37,10 @@ export default function ThemeToggle() {
   
   return (
     <button
-      onClick={toggleTheme}
-      className="p-2 rounded-full bg-gray-200 dark:bg-slate-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-slate-700 transition-all duration-300 transform hover:scale-105"
+      onClick={handleToggle}
+      className={`p-2 rounded-full bg-gray-200 dark:bg-slate-800 text-gray-800 dark:text-gray-200 
+        hover:bg-gray-300 dark:hover:bg-slate-700 transition-all duration-300 
+        ${isAnimating ? 'scale-90' : 'hover:scale-105'}`}
       aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
       title={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
     >
