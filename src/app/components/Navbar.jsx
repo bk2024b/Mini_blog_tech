@@ -56,7 +56,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center">
+          <div className="flex md:hidden items-center min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col pt-16">
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -105,7 +105,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div 
         className={`${
-          isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+          isMenuOpen ? "min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col pt-16 max-h-64 opacity-100" : "max-h-0 opacity-0"
         } md:hidden overflow-hidden transition-all duration-300 ease-in-out`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t dark:border-slate-800">

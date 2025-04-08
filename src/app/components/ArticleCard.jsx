@@ -10,7 +10,7 @@ export default function ArticleCard({ title, excerpt, slug, date, readTime, cate
   }) : null;
 
   return (
-    <div className="group relative bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-slate-700">
+    <div className="transition-all duration-300 hover:translate-y-[-5px] group relative bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-slate-700">
       {/* Image container with zoom effect */}
       <div className="relative h-48 w-full overflow-hidden">
         <Image 
