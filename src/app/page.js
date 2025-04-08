@@ -1,3 +1,14 @@
+// src/app/page.js
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ArticleCard from "./components/ArticleCard";
+import Link from "next/link";
+import { getAllArticles } from "@/lib/data";
+
+export const metadata = {
+  title: "Accueil | Mini-blog Tech",
+  description: "Blog tech moderne par Josias Boco pour aider les entrepreneurs et développeurs béninois",
+};
 // Modifications pour la page d'accueil (src/app/page.js)
 export default function Home() {
   // Récupérer les articles (normalement depuis un CMS ou une API)

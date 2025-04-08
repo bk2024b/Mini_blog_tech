@@ -1,3 +1,11 @@
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+
+export const metadata = {
+  title: "À propos | Mini-blog Tech",
+  description: "En savoir plus sur Josias Boco et le Mini-blog Tech",
+};
+
 export default function About() {
   return (
     <div className="min-h-screen bg-slate-900 flex flex-col">

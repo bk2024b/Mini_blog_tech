@@ -1,3 +1,15 @@
+// src/app/articles/page.jsx
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+import ArticleCard from "@/app/components/ArticleCard";
+import { getAllArticles } from "@/lib/data";
+
+const articles = getAllArticles();
+
+export const metadata = {
+  title: "Articles | Mini-blog Tech",
+  description: "Découvrez tous nos articles tech adaptés au contexte béninois",
+};
 export default function ArticlesPage() {
   return (
     <div className="min-h-screen bg-slate-900 flex flex-col">
