@@ -15,11 +15,11 @@ export default function Home() {
   const featuredArticles = getAllArticles().slice(0, 3);
   
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 flex flex-col">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+      {/* Hero Section - Cohérence améliorée avec bg-slate pour le mode sombre */}
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white pt-32 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Mini-Blog Tech
@@ -29,7 +29,7 @@ export default function Home() {
           </p>
           <Link
             href="/articles"
-            className="px-6 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors inline-block"
+            className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors inline-block shadow-md hover:shadow-lg"
           >
             Découvrir les articles
           </Link>
@@ -67,8 +67,8 @@ export default function Home() {
           ))}
         </div>
         
-        {/* About Section */}
-        <section className="mt-16 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        {/* About Section - Cohérence améliorée avec slate pour le mode sombre */}
+        <section className="mt-16 bg-white dark:bg-slate-800 rounded-xl p-8 shadow-md">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             À propos de ce blog
           </h2>

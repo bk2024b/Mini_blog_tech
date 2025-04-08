@@ -10,14 +10,15 @@ export const metadata = {
   title: "Articles | Mini-blog Tech",
   description: "Découvrez tous nos articles tech adaptés au contexte béninois",
 };
+
 export default function ArticlesPage() {
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
       <Navbar />
       
-      <main className="flex-grow pt-28 pb-12 px-4"> {/* Modifié ici */}
+      <main className="flex-grow py-12 px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-100 mb-8">
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8">
             Tous les articles
           </h1>
           
