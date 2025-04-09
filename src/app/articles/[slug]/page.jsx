@@ -1,4 +1,4 @@
-I'm// src/app/articles/[slug]/page.jsx
+// src/app/articles/[slug]/page.jsx
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
