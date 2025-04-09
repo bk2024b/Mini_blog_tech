@@ -1,4 +1,4 @@
-// src/app/articles/[slug]/page.jsx
+I'm// src/app/articles/[slug]/page.jsx
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
@@ -93,7 +93,7 @@ export default function ArticlePage({ params }) {
             {/* Article Image */}
             <div className="relative h-64 md:h-96 w-full rounded-xl overflow-hidden mb-6">
               <Image 
-                src={`/images/articles/${article.slug}.jpg`} 
+                src={`/images/articles/${article.slug}.png`} 
                 alt={article.title}
                 fill
                 className="object-cover"
