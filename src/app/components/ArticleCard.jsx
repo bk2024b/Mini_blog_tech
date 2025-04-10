@@ -15,7 +15,7 @@ export default function ArticleCard({ title, excerpt, slug, date, readTime, cate
       {/* Image container with zoom effect */}
       <div className="relative h-48 w-full overflow-hidden">
         <Image 
-          src={`/images/articles/${slug}.jpg`} 
+          src={`/images/articles/${slug}.png`} 
           alt={title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"

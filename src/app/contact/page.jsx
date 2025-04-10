@@ -5,7 +5,6 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 
 export default function Contact() {
-  // ... code existant ...
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,7 +23,7 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Validation simple
@@ -37,32 +36,68 @@ export default function Contact() {
       return;
     }
     
-    // Simulation d'envoi (remplacer par une vraie API dans un cas réel)
-    setTimeout(() => {
-      setSubmitStatus({
-        submitted: true,
-        success: true,
-        message: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible."
+    // Afficher message d'envoi
+    setSubmitStatus({
+      submitted: true,
+      success: true,
+      message: "Envoi...."
+    });
+    
+    // Créer le FormData pour l'envoi
+    const form = new FormData();
+    form.append("access_key", "67acd708-20a2-40f3-aa9f-2e436a8241b4");
+    form.append("name", formData.name);
+    form.append("email", formData.email);
+    form.append("subject", formData.subject || "Message depuis le formulaire de contact");
+    form.append("message", formData.message);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: form
       });
       
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
+      const data = await response.json();
+      
+      if (data.success) {
+        setSubmitStatus({
+          submitted: true,
+          success: true,
+          message: "Votre message a été envoyé avec succès. Je vous répondrai dès que possible."
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+      } else {
+        console.log("Erreur", data);
+        setSubmitStatus({
+          submitted: true,
+          success: false,
+          message: data.message || "Une erreur s'est produite lors de l'envoi du message."
+        });
+      }
+    } catch (error) {
+      console.error("Erreur d'envoi:", error);
+      setSubmitStatus({
+        submitted: true,
+        success: false,
+        message: "Une erreur s'est produite. Veuillez réessayer plus tard."
       });
-    }, 1000);
+    }
   };
 
   return (
     <div className="min-h-screen bg-slate-900 flex flex-col">
       <Navbar />
-      <main className="max-w-4xl mx-auto p-6 flex-grow w-full pt-28"> {/* Ajouté pt-28 */}
+      <main className="max-w-4xl mx-auto p-6 flex-grow w-full pt-28">
         <h1 className="text-3xl font-bold text-gray-100 mb-6">Contact</h1>
         
         <div className="bg-slate-800 rounded-xl shadow-md p-6 mb-8 border border-slate-700">
-          {/* ... reste du contenu ... */}
           <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Me contacter</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
