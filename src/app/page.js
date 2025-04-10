@@ -9,7 +9,7 @@ export const metadata = {
   title: "Accueil | Mini-blog Tech",
   description: "Blog tech moderne par Josias Boco pour aider les entrepreneurs et développeurs béninois",
 };
-// Modifications pour la page d'accueil (src/app/page.js)
+
 export default function Home() {
   // Récupérer les articles (normalement depuis un CMS ou une API)
   const featuredArticles = getAllArticles().slice(0, 3);
@@ -18,74 +18,74 @@ export default function Home() {
     <div className="min-h-screen bg-slate-900 flex flex-col">
       <Navbar />
       
-      {/* Hero Section - Cohérence améliorée avec le style sombre */}
-      <section className="bg-slate-800 text-white pt-32 pb-16 border-b border-slate-700">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      {/* Hero Section - Modifiée pour être cohérente avec la page Articles */}
+      <main className="flex-grow pt-28 pb-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-3xl font-bold text-gray-100 mb-8">
             Mini-Blog Tech
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 mb-8">
+          <p className="text-xl opacity-90 text-gray-300 mb-8">
             Solutions web adaptées au contexte béninois
           </p>
           <Link
             href="/articles"
-            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors inline-block shadow-md hover:shadow-lg"
+            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors inline-block shadow-md hover:shadow-lg mb-12"
           >
             Découvrir les articles
           </Link>
+          
+          {/* Featured Articles */}
+          <div className="mt-12">
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-2xl font-bold text-gray-100">
+                Articles récents
+              </h2>
+              <Link
+                href="/articles"
+                className="text-blue-400 hover:underline flex items-center"
+              >
+                Tous les articles
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
+            
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {featuredArticles.map((article) => (
+                <ArticleCard
+                  key={article.slug}
+                  title={article.title}
+                  excerpt={article.excerpt}
+                  slug={article.slug}
+                  date={article.date}
+                  readTime={article.readTime}
+                  category={article.category}
+                />
+              ))}
+            </div>
+          </div>
+          
+          {/* About Section */}
+          <section className="mt-16 bg-slate-800 rounded-xl p-8 shadow-md border border-slate-700">
+            <h2 className="text-2xl font-bold text-gray-100 mb-4">
+              À propos de ce blog
+            </h2>
+            <p className="text-gray-300 mb-4">
+              Je suis Josias Boco, étudiant en Génie Électrique et Informatique au Bénin. 
+              Ce blog partage mon expertise en développement web moderne, adapté aux réalités locales.
+            </p>
+            <Link
+              href="/about"
+              className="text-blue-400 hover:underline flex items-center w-fit"
+            >
+              En savoir plus
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+              </svg>
+            </Link>
+          </section>
         </div>
-      </section>
-      
-      {/* Featured Articles */}
-      <main className="max-w-6xl mx-auto px-6 py-12 flex-grow">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-100">
-            Articles récents
-          </h2>
-          <Link
-            href="/articles"
-            className="text-blue-400 hover:underline flex items-center"
-          >
-            Tous les articles
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </Link>
-        </div>
-        
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featuredArticles.map((article) => (
-            <ArticleCard
-              key={article.slug}
-              title={article.title}
-              excerpt={article.excerpt}
-              slug={article.slug}
-              date={article.date}
-              readTime={article.readTime}
-              category={article.category}
-            />
-          ))}
-        </div>
-        
-        {/* About Section */}
-        <section className="mt-16 bg-slate-800 rounded-xl p-8 shadow-md border border-slate-700">
-          <h2 className="text-2xl font-bold text-gray-100 mb-4">
-            À propos de ce blog
-          </h2>
-          <p className="text-gray-300 mb-4">
-            Je suis Josias Boco, étudiant en Génie Électrique et Informatique au Bénin. 
-            Ce blog partage mon expertise en développement web moderne, adapté aux réalités locales.
-          </p>
-          <Link
-            href="/about"
-            className="text-blue-400 hover:underline flex items-center w-fit"
-          >
-            En savoir plus
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </Link>
-        </section>
       </main>
       
       <Footer />
